@@ -1,6 +1,6 @@
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useContext } from "react";
 
-export const TodoContext = createContext(); //1 Create Context + export
+const TodoContext = createContext(); //1 Create Context + export
 
 //3 Initial state data
 const todoList = [
@@ -39,3 +39,5 @@ export function TodoProvider({ children }) {
     </TodoContext.Provider>
   );
 }
+//7 comprimiendo el código aun mas
+export const useTodoContext = () => useContext(TodoContext);
