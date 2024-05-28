@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function TodoInfoScreen() {
+//Route passing params navigation
+export default function TodoInfoScreen({ route }) {
+  const id = route.params;
   return (
     <View style={styles.container}>
       <Text>TODO INFO SCREEN</Text>
+      <Text>{id}</Text>
     </View>
   );
 }

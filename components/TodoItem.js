@@ -1,14 +1,18 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-export default function TodoItem({ itemObj }) {
+export default function TodoItem({ itemObj, nav }) {
   return (
     <View style={styles.container}>
       <View style={{ paddingHorizontal: 5 }}>
         <Text style={{ fontSize: 23 }}>{itemObj.title}</Text>
       </View>
       <View style={{ paddingHorizontal: 5 }}>
-        <Button title=">" color="#841584" />
+        <Button
+          title=">"
+          color="#841584"
+          onPress={() => nav.navigate("TodoInfoSC", itemObj.id)}
+        />
       </View>
     </View>
   );

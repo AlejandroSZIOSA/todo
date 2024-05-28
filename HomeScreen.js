@@ -18,14 +18,16 @@ const DATA_TEST = [
   },
 ];
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 40 }}>TODOS</Text>
       <ScrollView>
         <FlatList
           data={DATA_TEST}
-          renderItem={({ item }) => <TodoItem itemObj={item} />}
+          renderItem={({ item }) => (
+            <TodoItem itemObj={item} nav={navigation} />
+          )}
           keyExtractor={(item) => item.id}
           style={styles.listContainer}
         />
