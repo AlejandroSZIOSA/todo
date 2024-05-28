@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function NewTodoScreen() {
   const [titleInput, setTitleInput] = useState("");
-
+  const [descriptionInput, setDescriptionInput] = useState("");
   return (
     <View style={styles.container}>
       <View style={styles.innerContainer}>
@@ -17,7 +17,14 @@ export default function NewTodoScreen() {
           />
         </View>
         <View style={styles.descriptionContainer}>
-          <Text>Description</Text>
+          <TextInput
+            style={styles.title}
+            placeholder="Description"
+            maxLength={100}
+            onChangeText={(descriptionInput) =>
+              setDescriptionInput(descriptionInput)
+            }
+          />
         </View>
       </View>
     </View>
