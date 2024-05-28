@@ -10,7 +10,7 @@ export default function NewTodoScreen() {
       <View style={styles.innerContainer}>
         <View style={styles.titleContainer}>
           <TextInput
-            style={styles.title}
+            style={{ fontSize: 25 }}
             placeholder="Title"
             maxLength={28}
             onChangeText={(titleInput) => setTitleInput(titleInput)}
@@ -18,7 +18,10 @@ export default function NewTodoScreen() {
         </View>
         <View style={styles.descriptionContainer}>
           <TextInput
-            style={styles.title}
+            editable
+            multiline
+            numberOfLines={4}
+            style={{ fontSize: 25 }}
             placeholder="Description"
             maxLength={100}
             onChangeText={(descriptionInput) =>
@@ -38,32 +41,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-
   innerContainer: {
     flex: 0,
     flexDirection: "column",
     gap: 15,
   },
-
   titleContainer: {
     width: 350,
     borderColor: "#111111",
     borderWidth: 2,
   },
-
-  title: {
-    fontSize: 25,
-  },
-
   descriptionContainer: {
     width: 350,
     height: 200,
     borderColor: "#111111",
     borderWidth: 2,
     padding: 10, //problem
-  },
-
-  description: {
-    fontSize: 25,
   },
 });
