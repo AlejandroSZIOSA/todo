@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
+//Using Navigation as prop
 export default function TodoItem({ itemObj, nav }) {
   return (
     <View style={styles.container}>
