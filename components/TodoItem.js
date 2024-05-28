@@ -5,10 +5,10 @@ import { View, Text, StyleSheet, Button } from "react-native";
 export default function TodoItem({ itemObj, nav }) {
   return (
     <View style={styles.container}>
-      <View style={{ paddingHorizontal: 5 }}>
+      <View style={{ marginLeft: 6 }}>
         <Text style={{ fontSize: 23 }}>{itemObj.title}</Text>
       </View>
-      <View style={{ paddingHorizontal: 5 }}>
+      <View style={{ marginRight: 6 }}>
         <Button
           title=">"
           color="#841584"

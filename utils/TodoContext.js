@@ -8,8 +8,9 @@ const todoList = [
     id: 1,
     title: "title1",
     description: "des2",
+    isDone: false,
   },
-  { id: 2, title: "title2", description: "des3" },
+  { id: 2, title: "title2", description: "des3", isDone: false },
 ];
 
 //5 reducer function
