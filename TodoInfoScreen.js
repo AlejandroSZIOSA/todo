@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useTodoContext } from "./utils/TodoContext";
 
@@ -9,7 +9,7 @@ const Footer = (props) => {
         <Text style={{ fontWeight: "bold" }}>DATUM: {props.datum}</Text>
       </View>
       <View style={{ marginRight: 15 }}>
-        <Button title="Remove" onPress={props.onPressFn} />
+        <Button title="Remove" color="red" onPress={props.onPressFn} />
       </View>
     </View>
   );
@@ -18,13 +18,13 @@ const Footer = (props) => {
 //Route passing params navigation
 export default function TodoInfoScreen({ route, navigation }) {
   const { dispatch } = useTodoContext();
-  const { id, description, datum } = route.params;
+  const { id, description, datum, isDone } = route.params;
 
   function handleRemoveTodoBtn() {
     const todoId = id;
     dispatch({
       type: "REMOVE_TODO",
-      payload: todoId, //It works
+      payload: todoId,
     });
     navigation.navigate("HomeSC"); //Returning to the Home screen
   }
@@ -34,7 +34,10 @@ export default function TodoInfoScreen({ route, navigation }) {
       <View style={{ marginTop: 80 }}>
         <Text style={{ fontSize: 40 }}>{description}</Text>
       </View>
-      <Button title="Done" color="green" />
+      <Button
+        title={isDone ? "undone" : "done"}
+        color={isDone ? "orange" : "green"}
+      />
       <Footer onPressFn={handleRemoveTodoBtn} datum={datum} />
     </View>
   );

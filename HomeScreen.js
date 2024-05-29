@@ -24,7 +24,6 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontSize: 40 }}>TODOS</Text>
       <ScrollView>
         <FlatList
           data={stateTodoList}
@@ -46,10 +45,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "top",
     alignItems: "center",
+    marginTop: 20,
   },
   listContainer: {
     width: 360,
-    height: 650,
+    height: 680,
     backgroundColor: "yellow",
   },
 });

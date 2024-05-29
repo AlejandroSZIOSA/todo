@@ -16,7 +16,7 @@ const todoList = [
     title: "title2",
     description: "des2",
     datum: "2024-02-24",
-    isDone: false,
+    isDone: true,
   },
   {
     id: 3,
@@ -37,6 +37,22 @@ function todosReducer(state, action) {
     case "REMOVE_TODO": {
       const todoId = action.payload;
       return state.filter((todo) => todo.id !== todoId);
+    }
+
+    case "EDIT_TODO": {
+      const editedQuestionObj = action.payload;
+      const id = editedQuestionObj.id;
+
+      return {
+        ...state,
+        questions: state.questions.map((q) => {
+          if (q.id === id) {
+            q = editedQuestionObj;
+            return q;
+          }
+          return q;
+        }),
+      };
     }
     default:
       return state;
