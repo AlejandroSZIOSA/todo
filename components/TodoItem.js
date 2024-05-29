@@ -12,7 +12,7 @@ export default function TodoItem({ itemObj, nav }) {
         <Button
           title=">"
           color="#841584"
-          onPress={() => nav.navigate("TodoInfoSC", itemObj.id)}
+          onPress={() => nav.navigate("TodoInfoSC", itemObj)}
         />
       </View>
     </View>

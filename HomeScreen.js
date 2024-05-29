@@ -2,8 +2,9 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import TodoItem from "./components/TodoItem";
+import { useTodoContext } from "./utils/TodoContext";
 
-const DATA_TEST = [
+/* const DATA_TEST = [
   {
     id: 1,
     title: "First Item",
@@ -17,14 +18,16 @@ const DATA_TEST = [
     title: "Third Item",
   },
 ];
-
+ */
 export default function HomeScreen({ navigation }) {
+  const { stateTodoList } = useTodoContext(); //CONTEXT
+
   return (
     <View style={styles.container}>
       <Text style={{ fontSize: 40 }}>TODOS</Text>
       <ScrollView>
         <FlatList
-          data={DATA_TEST}
+          data={stateTodoList}
           renderItem={({ item }) => (
             <TodoItem itemObj={item} nav={navigation} />
           )}

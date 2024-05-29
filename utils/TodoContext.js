@@ -8,9 +8,23 @@ const todoList = [
     id: 1,
     title: "title1",
     description: "des2",
+    datum: "2024-02-23",
     isDone: false,
   },
-  { id: 2, title: "title2", description: "des3", isDone: false },
+  {
+    id: 2,
+    title: "title2",
+    description: "des2",
+    datum: "2024-02-24",
+    isDone: false,
+  },
+  {
+    id: 3,
+    title: "title3",
+    description: "des3",
+    datum: "2024-02-25",
+    isDone: false,
+  },
 ];
 
 //5 reducer function
@@ -32,10 +46,10 @@ function todosReducer(state, action) {
 //2 Create provider
 export function TodoProvider({ children }) {
   //4 Reducer
-  const [state, dispatch] = useReducer(todosReducer, todoList);
+  const [stateTodoList, dispatch] = useReducer(todosReducer, todoList);
 
   return (
-    <TodoContext.Provider value={{ state, dispatch }}>
+    <TodoContext.Provider value={{ stateTodoList, dispatch }}>
       {children}
     </TodoContext.Provider>
   );
