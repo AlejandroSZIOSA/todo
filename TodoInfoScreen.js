@@ -29,6 +29,13 @@ export default function TodoInfoScreen({ route, navigation }) {
     navigation.navigate("HomeSC"); //Returning to the Home screen
   }
 
+  function handleTodoIsDone() {
+    dispatch({
+      type: "IS_DONE_TRUE",
+      payload: id,
+    });
+  }
+
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 80 }}>
@@ -37,6 +44,7 @@ export default function TodoInfoScreen({ route, navigation }) {
       <Button
         title={isDone ? "undone" : "done"}
         color={isDone ? "orange" : "green"}
+        onPress={handleTodoIsDone}
       />
       <Footer onPressFn={handleRemoveTodoBtn} datum={datum} />
     </View>

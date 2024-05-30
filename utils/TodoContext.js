@@ -39,20 +39,26 @@ function todosReducer(state, action) {
       return state.filter((todo) => todo.id !== todoId);
     }
 
-    case "EDIT_TODO": {
-      const editedQuestionObj = action.payload;
-      const id = editedQuestionObj.id;
+    case "IS_DONE_TRUE": {
+      const todoId = action.payload;
+      return state.map((t) => {
+        if (t.id === todoId) {
+          t.isDone = true;
+          return t;
+        }
+        return t;
+      });
+    }
 
-      return {
-        ...state,
-        questions: state.questions.map((q) => {
-          if (q.id === id) {
-            q = editedQuestionObj;
-            return q;
-          }
-          return q;
-        }),
-      };
+    case "IS_DONE_FALSE": {
+      const todoId = action.payload;
+      return state.map((t) => {
+        if (t.id === todoId) {
+          t.isDone = false;
+          return t;
+        }
+        return t;
+      });
     }
     default:
       return state;
