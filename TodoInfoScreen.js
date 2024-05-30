@@ -36,6 +36,21 @@ export default function TodoInfoScreen({ route, navigation }) {
     });
   }
 
+  function handleTodoIsUndone() {
+    dispatch({
+      type: "IS_DONE_FALSE",
+      payload: id,
+    });
+  }
+
+  function handleDoneBtn() {
+    if (isDone) {
+      handleTodoIsUndone();
+    } else {
+      handleTodoIsDone();
+    }
+  }
+
   return (
     <View style={styles.container}>
       <View style={{ marginTop: 80 }}>
@@ -44,7 +59,7 @@ export default function TodoInfoScreen({ route, navigation }) {
       <Button
         title={isDone ? "undone" : "done"}
         color={isDone ? "orange" : "green"}
-        onPress={handleTodoIsDone}
+        onPress={handleDoneBtn}
       />
       <Footer onPressFn={handleRemoveTodoBtn} datum={datum} />
     </View>
