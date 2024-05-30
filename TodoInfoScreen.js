@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 import { useTodoContext } from "./utils/TodoContext";
 

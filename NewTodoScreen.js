@@ -49,7 +49,7 @@ export default function NewTodoScreen({ navigation }) {
         type: "ADD_TODO",
         payload: newTodoObj,
       });
-      navigation.navigate("HomeSC");
+      navigation.goBack(); //Navigation
     } else {
       setMessage("Error Inputs");
     }
