@@ -4,21 +4,6 @@ import { StatusBar } from "expo-status-bar";
 import TodoItem from "./components/TodoItem";
 import { useTodoContext } from "./utils/TodoContext";
 
-/* const DATA_TEST = [
-  {
-    id: 1,
-    title: "First Item",
-  },
-  {
-    id: 2,
-    title: "Second Item",
-  },
-  {
-    id: 3,
-    title: "Third Item",
-  },
-];
- */
 export default function HomeScreen({ navigation }) {
   const { stateTodoList } = useTodoContext(); //CONTEXT
 
@@ -50,6 +35,6 @@ const styles = StyleSheet.create({
   listContainer: {
     width: 360,
     height: 680,
-    backgroundColor: "yellow",
+    backgroundColor: "#00E78F",
   },
 });

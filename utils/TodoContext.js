@@ -6,14 +6,14 @@ const TodoContext = createContext(); //1 Create Context + export
 const todoList = [
   {
     id: 1,
-    title: "Title1",
+    title: "Todo_1",
     description: "description_1",
     datum: "2024-02-23 /10:30",
     isDone: false,
   },
   {
     id: 2,
-    title: "Title2",
+    title: "Todo_2",
     description: "description_2",
     datum: "2024-02-24 /10:31",
     isDone: true,

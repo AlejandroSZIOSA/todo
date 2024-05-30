@@ -61,7 +61,7 @@ export default function NewTodoScreen({ navigation }) {
         <View style={styles.titleContainer}>
           <TextInput
             style={{ fontSize: 25 }}
-            placeholder="Title"
+            placeholder="Todo Title"
             maxLength={28}
             onChangeText={(titleInput) => setTitleInput(titleInput)}
           />
