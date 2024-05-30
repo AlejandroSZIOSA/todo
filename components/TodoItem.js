@@ -1,12 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, Button } from "react-native";
+import { View, Text, StyleSheet, Button, TouchableOpacity } from "react-native";
 
 //Using Navigation as prop
 export default function TodoItem({ itemObj, nav }) {
   return (
     <View style={styles.container}>
       <View style={{ marginLeft: 6 }}>
-        <Text style={{ fontSize: 23 }}>{itemObj.title}</Text>
+        <TouchableOpacity onPress={() => nav.navigate("TodoInfoSC", itemObj)}>
+          <Text style={{ fontSize: 23 }}>{itemObj.title}</Text>
+        </TouchableOpacity>
       </View>
       <View style={{ marginRight: 6 }}>
         <Button
