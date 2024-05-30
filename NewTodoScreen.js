@@ -80,7 +80,7 @@ export default function NewTodoScreen({ navigation }) {
           />
         </View>
         <View style={{ width: 120 }}>
-          <Button title="done" onPress={handleAddTodo} />
+          <Button title="add" onPress={handleAddTodo} />
         </View>
         <Text style={{ fontSize: 18 }}>{message}</Text>
       </View>

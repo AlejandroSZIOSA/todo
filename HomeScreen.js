@@ -35,6 +35,6 @@ const styles = StyleSheet.create({
   listContainer: {
     width: 360,
     height: 680,
-    backgroundColor: "#00E78F",
+    backgroundColor: "#FFE5C4",
   },
 });

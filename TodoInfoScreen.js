@@ -55,7 +55,7 @@ export default function TodoInfoScreen({ route, navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={{ marginTop: 80 }}>
+      <View style={styles.descriptionContainer}>
         <Text style={{ fontSize: 40 }}>{description}</Text>
       </View>
       <Button
@@ -75,6 +75,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-between",
+  },
+
+  descriptionContainer: {
+    width: 350,
+    height: 500,
+    borderColor: "#111111",
+    borderWidth: 2,
+    marginTop: 40,
   },
 
   footerContainer: {
