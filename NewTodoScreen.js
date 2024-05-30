@@ -1,11 +1,11 @@
-import React, { useRef } from "react";
-import { View, StyleSheet, TextInput, Button } from "react-native";
+import { View, StyleSheet, TextInput, Button, Text } from "react-native";
 import { useState } from "react";
 import { useTodoContext } from "./utils/TodoContext";
 
 export default function NewTodoScreen({ navigation }) {
   const [titleInput, setTitleInput] = useState("");
   const [descriptionInput, setDescriptionInput] = useState("");
+  const [message, setMessage] = useState("");
 
   const { stateTodoList, dispatch } = useTodoContext();
 
@@ -24,18 +24,18 @@ export default function NewTodoScreen({ navigation }) {
     return `${year}-${month}-${day} / ${hours}:${minutes}`;
   }
 
-  function createTodoObj() {
+  function createNewTodo() {
     let lastTodoId = getLatestTodoId();
     const newUnikeId = lastTodoId + 1; //generate unique ID
     const date = generateDateStamp();
-    const testQuestionObj1 = {
+    const newTodo = {
       id: newUnikeId,
       title: titleInput,
       description: descriptionInput,
       datum: date,
       isDone: false,
     };
-    return testQuestionObj1;
+    return newTodo;
   }
 
   function handleAddTodo() {
@@ -43,12 +43,15 @@ export default function NewTodoScreen({ navigation }) {
     const isDescriptionInputEmpty = !descriptionInput ? true : false;
 
     if (!isTitleInputEmpty && !isDescriptionInputEmpty) {
-      const newTodoObj = createTodoObj();
+      setMessage("");
+      const newTodoObj = createNewTodo();
       dispatch({
         type: "ADD_TODO",
         payload: newTodoObj,
       });
       navigation.navigate("HomeSC");
+    } else {
+      setMessage("Error Inputs");
     }
   }
 
@@ -76,7 +79,10 @@ export default function NewTodoScreen({ navigation }) {
             }
           />
         </View>
-        <Button title="done" onPress={handleAddTodo} />
+        <View style={{ width: 120 }}>
+          <Button title="done" onPress={handleAddTodo} />
+        </View>
+        <Text style={{ fontSize: 18 }}>{message}</Text>
       </View>
     </View>
   );
@@ -87,12 +93,14 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "top",
   },
   innerContainer: {
     flex: 0,
     flexDirection: "column",
-    gap: 15,
+    alignItems: "center",
+    gap: 20,
+    marginTop: 20,
   },
   titleContainer: {
     width: 350,

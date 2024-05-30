@@ -6,24 +6,17 @@ const TodoContext = createContext(); //1 Create Context + export
 const todoList = [
   {
     id: 1,
-    title: "title1",
-    description: "des2",
-    datum: "2024-02-23",
+    title: "Title1",
+    description: "description_1",
+    datum: "2024-02-23 /10:30",
     isDone: false,
   },
   {
     id: 2,
-    title: "title2",
-    description: "des2",
-    datum: "2024-02-24",
+    title: "Title2",
+    description: "description_2",
+    datum: "2024-02-24 /10:31",
     isDone: true,
-  },
-  {
-    id: 3,
-    title: "title3",
-    description: "des3",
-    datum: "2024-02-25",
-    isDone: false,
   },
 ];
 

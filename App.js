@@ -40,7 +40,7 @@ export default function App() {
           <Stack.Screen
             name="NewTodoSC"
             component={NewTodoScreen}
-            options={({ navigation, route }) => ({
+            options={({ navigation }) => ({
               title: "NEW TODO",
               headerStyle: {
                 backgroundColor: "#00D382",
@@ -50,9 +50,13 @@ export default function App() {
                 fontSize: 25,
                 fontWeight: "bold",
               },
-              headerRight: () => (
-                <Button onPress={() => alert("DONE")} title="DONE" />
-              ),
+
+              /*   headerRight: () => (
+                <Button
+                  onPress={() => navigation.navigate("HomeSC")}
+                  title="DONE"
+                />
+              ), */
             })}
           />
 
@@ -60,7 +64,7 @@ export default function App() {
             name="TodoInfoSC"
             component={TodoInfoScreen}
             options={({ navigation, route }) => ({
-              title: "Todo Info",
+              title: route.params.title,
               headerStyle: {
                 backgroundColor: "#00D382",
               },

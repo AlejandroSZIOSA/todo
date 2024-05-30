@@ -6,7 +6,9 @@ const Footer = (props) => {
   return (
     <View style={styles.footerContainer}>
       <View style={{ marginLeft: 15 }}>
-        <Text style={{ fontWeight: "bold" }}>DATUM: {props.datum}</Text>
+        <Text style={{ fontWeight: "bold", fontSize: 20 }}>
+          DATUM: {props.datum}
+        </Text>
       </View>
       <View style={{ marginRight: 15 }}>
         <Button title="Remove" color="red" onPress={props.onPressFn} />
@@ -57,8 +59,8 @@ export default function TodoInfoScreen({ route, navigation }) {
         <Text style={{ fontSize: 40 }}>{description}</Text>
       </View>
       <Button
-        title={isDone ? "undone" : "done"}
-        color={isDone ? "orange" : "green"}
+        title={isDone ? "done" : "undone"}
+        color={isDone ? "green" : "orange"}
         onPress={handleDoneBtn}
       />
       <Footer onPressFn={handleRemoveTodoBtn} datum={datum} />
